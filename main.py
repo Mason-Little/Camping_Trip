@@ -27,8 +27,8 @@ def filter():
     driver.find_element_by_xpath('//*[@id="mat-select-value-1"]').click()
     time.sleep(3)
     # selecting Type
-    driver.find_element_by_xpath('//*[@id="mat-option-3"]').click()
-    time.sleep(1)
+    driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/div/div/mat-option[4]').click()
+    time.sleep(2)
     # pressing search
     driver.find_element_by_xpath('//*[@id="actionSearch"]/span[1]/div[2]').click()
 
@@ -36,18 +36,18 @@ def filter():
 def searching_camp_sites_A():
     # Press On List View
     driver.find_element_by_xpath('//*[@id="list-view-button"]/fa-icon').click()
-    time.sleep(1)
+    time.sleep(2)
     # Unpress Show All
     driver.find_element_by_xpath('//*[@id="mat-checkbox-1"]/label/span[1]').click()
-    time.sleep(1)
+    time.sleep(2)
     # Press a Site
     driver.find_element_by_xpath('//*[@id="mat-expansion-panel-header-1"]').click()
-    time.sleep(1)
+    time.sleep(2)
     # Pressing Calendar View
     driver.find_element_by_xpath('//*[@id="mat-tab-label-1-2"]').click()
-    time.sleep(1)
+    time.sleep(2)
     driver.find_element_by_xpath('//*[@id="mat-checkbox-2"]/label/span[1]').click()
-    time.sleep(1)
+    time.sleep(2)
     # Unpress show all
     rows = driver.find_elements_by_xpath("//table/tbody/tr")
     print(len(rows))
@@ -61,28 +61,29 @@ def searching_camp_sites_B():
     time.sleep(1)
     # click back on Porteau Cove
     driver.find_element_by_xpath('//*[@id="breadcrumb"]/li[3]/button').click()
-    time.sleep(1)
+    time.sleep(2)
     # click on list View
     driver.find_element_by_xpath('//*[@id="mat-tab-label-1-1"]').click()
-    time.sleep(1)
+    time.sleep(2)
     # Uncheck Show All
-    driver.find_element_by_xpath('//*[@id="mat-checkbox-42"]/label/span[1]').click()
-    time.sleep(1)
+    driver.find_element_by_xpath('//*[@id="mat-checkbox-41"]/label/span[1]').click()
+    time.sleep(2)
     # Press B Site
-    driver.find_element_by_xpath('//*[@id="mat-expansion-panel-header-60"]').click()
-    time.sleep(1)
+    driver.find_element_by_xpath('//*[@id="mat-expansion-panel-header-10"]').click()
+    time.sleep(2)
     # Click on Calendar View
     driver.find_element_by_xpath('//*[@id="grid-view-button"]').click()
-    time.sleep(1)
+    time.sleep(2)
     # Unpressed Show All
-    driver.find_element_by_xpath('//*[@id="mat-checkbox-7"]/label/span[1]').click()
+    driver.find_element_by_xpath('//*[@id="mat-checkbox-42"]/label/span[1]').click()
 
 
 search_bar()
+time.sleep(5)
 filter()
-time.sleep(3)
+time.sleep(5)
 searching_camp_sites_A()
-time.sleep(3)
+time.sleep(5)
 searching_camp_sites_B()
 
 
