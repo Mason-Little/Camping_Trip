@@ -23,7 +23,6 @@ def search_and_filter():
     # entering the search term
     driver.find_element(By.XPATH, '//*[@id="park-autocomplete"]').send_keys("Por")
     # pressing top result
-    time.sleep(3)
     driver.find_element(By.XPATH, '//*[@id="park-autocomplete"]').send_keys(Keys.ENTER)
     # click on the filter button
     driver.find_element(By.XPATH, '//*[@id="mat-select-value-1"]').click()
@@ -31,7 +30,6 @@ def search_and_filter():
     time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="mat-option-3"]').click()
     # Pressing search
-    input()
     driver.find_element(By.XPATH, '//*[@id="actionSearch"]').click()
 
 
@@ -55,6 +53,7 @@ def CampSite_A():
             btn = ' '.join(btn)
             btn = btn.replace('\n', '')
             btn = btn.replace('\r', '')
+            btn = btn.strip()
             CampSite_A_Dict[btn] = answer
 
 
@@ -82,6 +81,7 @@ def CampSite_B():
             btn = ' '.join(btn)
             btn = btn.replace('\n', '')
             btn = btn.replace('\r', '')
+            btn = btn.strip()
             CampSite_B_Dict[btn] = answer
 
 
@@ -109,6 +109,7 @@ def CampSite_C():
             btn = ' '.join(btn)
             btn = btn.replace('\n', '')
             btn = btn.replace('\r', '')
+            btn = btn.strip()
             CampSite_C_Dict[btn] = answer
 
 
@@ -134,27 +135,31 @@ email_password = 'ressubtezngvojdg'
 email_receiver = 'baboom16mll@gmail.com'
 
 for k in CampSite_A_Dict:
-    print(CampSite_A_Dict[k])
-    if CampSite_A_Dict[k].lower == "Available":
+    compare = CampSite_A_Dict[k].lower
+    if CampSite_A_Dict[k] == "Available":
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=ssl.create_default_context()) as smtp:
             smtp.login(email_sender, email_password)
             smtp.sendmail(email_sender, email_receiver, k)
             print(f'Email sent to {email_receiver}')
+            smtp.quit()
+    input("Press Enter to continue...")
 
 for k in CampSite_B_Dict:
-    print(CampSite_A_Dict[k])
+    compare = CampSite_A_Dict[k].lower
     if CampSite_A_Dict[k].lower == "Available":
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=ssl.create_default_context()) as smtp:
             smtp.login(email_sender, email_password)
             smtp.sendmail(email_sender, email_receiver, k)
             print(f'Email sent to {email_receiver}')
+            smtp.quit()
 
 for k in CampSite_C_Dict:
-    print(CampSite_A_Dict[k])
+    compare = CampSite_A_Dict[k].lower
     if CampSite_A_Dict[k].lower == "Available":
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=ssl.create_default_context()) as smtp:
             smtp.login(email_sender, email_password)
             smtp.sendmail(email_sender, email_receiver, k)
             print(f'Email sent to {email_receiver}')
+            smtp.quit()
 
 driver.quit()
